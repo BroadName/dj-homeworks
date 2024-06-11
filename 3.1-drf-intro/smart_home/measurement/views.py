@@ -23,7 +23,7 @@ class SensorsView(ListAPIView):
     def post(self, request):
         if request.data:
             Sensor.objects.create(**request.data)
-        return Response({'status': 'OK'})
+            return Response({'status': 'OK'})
 
 
 class SensorDetailView(RetrieveAPIView):
