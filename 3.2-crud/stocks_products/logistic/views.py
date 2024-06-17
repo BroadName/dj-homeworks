@@ -7,16 +7,16 @@ from .serializers import ProductSerializer, StockSerializer
 
 
 class ProductViewSet(ModelViewSet):
-    queryset = Product.objects.all()
+    queryset = Product.objects.all().order_by('id')
     serializer_class = ProductSerializer
+
     filter_backends = [DjangoFilterBackend, SearchFilter]
     search_fields = ['title', 'description']
-    # при необходимости добавьте параметры фильтрации
 
 
 class StockViewSet(ModelViewSet):
-    queryset = Stock.objects.all()
+    queryset = Stock.objects.all().order_by('id')
     serializer_class = StockSerializer
+
     filter_backends = [DjangoFilterBackend]
     filterset_fields = ['products']
-    # при необходимости добавьте параметры фильтрации
